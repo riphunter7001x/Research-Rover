@@ -6,10 +6,10 @@ from src.tools import get_retriver
 from langchain.schema.output_parser import StrOutputParser
 from langchain.schema.runnable import RunnableParallel, RunnablePassthrough
 
-st.title("Research Rover")
+st.title("🔍 Research Rover")
 
 # Sidebar for topic input and fetching papers
-st.sidebar.header("Research Paper Search and Embedding")
+st.sidebar.header("📚 Research Paper Search and Embedding")
 st.sidebar.write("Enter a topic to search for research papers from arXiv and embed them for querying.")
 
 # Input field for the topic
@@ -22,20 +22,18 @@ if "retriever" not in st.session_state:
 # Button to fetch and embed papers
 if st.sidebar.button("Fetch & Embed Papers"):
     if topic:
-        with st.spinner("Fetching Papers..."):
+        with st.spinner("🔍 Fetching Papers..."):
             text = get_papers(topic)
-            st.sidebar.success("Papers fetched")
-        with st.spinner("Embedding Papers..."):
+            st.sidebar.success("✅ Papers fetched")
+        with st.spinner("🔍 Embedding Papers..."):
             st.session_state.retriever = get_retriver(text)
-            st.sidebar.success("Papers embedded")
+            st.sidebar.success("✅ Papers embedded")
     else:
-        st.sidebar.error("Please enter a topic.")
+        st.sidebar.error("❌ Please enter a topic.")
 
-# Define the processing chain
+# Define the processing chain if retriever is initialized
 if st.session_state.retriever:
-    print(st.session_state.retriever)
     retriever = st.session_state.retriever
-    print(retriever)
     chain = (
         RunnableParallel({"context": retriever, "question": RunnablePassthrough()})
         | system_prompt
@@ -48,7 +46,7 @@ if st.session_state.retriever:
     st.write(f"Explore research papers and insights about {topic}. Ask any question you have about this topic, and the system will provide relevant information based on the embedded research papers.")
 
     # Chatbot interface
-    st.header("Research Paper Query Chatbot")
+    st.header("🤖 Research Paper Query Chatbot")
     st.write(f"Ask questions about {topic}.")
 
     # Initialize chat history
@@ -68,7 +66,7 @@ if st.session_state.retriever:
         st.session_state.messages.append({"role": "user", "content": prompt})
 
         # Generate and display assistant response with spinner
-        with st.spinner("Generating response..."):
+        with st.spinner("🔄 Generating response..."):
             response = chain.invoke(prompt)
         with st.chat_message("assistant"):
             st.markdown(response)
