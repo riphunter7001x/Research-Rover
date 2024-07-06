@@ -26,7 +26,7 @@ Research Rover is a Streamlit application that searches for research papers on a
 2. **Set up a virtual environment (recommended):**
    ```bash
    python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
+   source venv\Scripts\activate
    ```
 
 3. **Install dependencies:**
