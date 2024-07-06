@@ -78,7 +78,7 @@ def get_papers(query: str) -> str:
     return full_text
 
 
-def get_retriver(full_text: str) -> None:
+def get_retriver(full_text: str, topic) -> None:
     # """Splits the text into chunks and creates a Qdrant vector store.
 
     # Args:
@@ -98,7 +98,7 @@ def get_retriver(full_text: str) -> None:
             documents=paper_chunks,
             embedding=CohereEmbeddings(model="embed-english-light-v3.0"),
             path="./db",
-            collection_name="arxiv_papers",
+            collection_name = f"arxiv_papers_{topic.replace(' ', '_')}"
         )
         return qdrant.as_retriever(k=5)
     except Exception as e:

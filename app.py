@@ -26,7 +26,7 @@ if st.sidebar.button("Fetch & Embed Papers"):
             text = get_papers(topic)
             st.sidebar.success("✅ Papers fetched")
         with st.spinner("🔍 Embedding Papers..."):
-            st.session_state.retriever = get_retriver(text)
+            st.session_state.retriever = get_retriver(text,topic)
             st.sidebar.success("✅ Papers embedded")
     else:
         st.sidebar.error("❌ Please enter a topic.")
