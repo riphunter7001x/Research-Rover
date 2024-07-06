@@ -1,25 +1,25 @@
 
-# Research Rover
+# Research Rover 🌐📚🤖
 
 Research Rover is a Streamlit application that searches for research papers on a specified topic from arXiv, embeds them, and allows users to query these embedded papers through a chatbot interface.
 
-## Features
+## Features ✨
 
 - Search and retrieve research papers from arXiv based on user-defined topics.
 - Embed fetched papers for efficient querying.
 - Interactive chatbot for querying embedded research papers.
 
-## Installation
+## Installation 🛠️
 
 ### Prerequisites
 
-- Python 3.10 
+- Python 3.10 ⚙️
 
 ### Steps
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/ResearchRover.git
+   git clone https://github.com/riphunter7001x/ResearchRover.git
    cd ResearchRover
    ```
 
@@ -35,12 +35,13 @@ Research Rover is a Streamlit application that searches for research papers on a
    ```
 
 4. **Configure environment variables:**
-   Create a `.env` file in the root directory and add your `GROQ_API_KEY`:
+   Create a `.env` file in the root directory and add your API keys:
    ```plaintext
    GROQ_API_KEY=your_groq_api_key
+   COHERE_API_KEY=your_cohere_api_key
    ```
 
-## Usage
+## Usage 🚀
 
 1. **Run the application:**
    ```bash
@@ -52,11 +53,10 @@ Research Rover is a Streamlit application that searches for research papers on a
    - Click "Fetch & Embed Papers" to retrieve and embed research papers.
 
 3. **Query Papers:**
-   - Use the chat interface to ask questions about the fetched papers.
+   - Use the chat interface to ask questions about the fetched papers. 💬
 
-
-## Example
+## Example 📝
 
 1. Enter "AI in Health Care" as a topic.
 2. Click "Fetch & Embed Papers".
-3. Once embedding is complete, query the papers via the chat interface.
+3. Once embedding is complete, query the papers via the chat interface. 📚💬
