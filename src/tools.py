@@ -97,8 +97,8 @@ def get_retriver(full_text: str, topic) -> None:
         qdrant = Qdrant.from_documents(
             documents=paper_chunks,
             embedding=CohereEmbeddings(model="embed-english-light-v3.0"),
-            path="./db",
-            collection_name = f"arxiv_papers_{topic.replace(' ', '_')}"
+            path=f"./db_{topic.replace(' ', '_')}",
+            collection_name = "arxiv_papers"
         )
         return qdrant.as_retriever(k=5)
     except Exception as e:
