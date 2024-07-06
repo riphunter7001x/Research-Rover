@@ -1,0 +1,12 @@
+streamlit
+arxiv
+pypdf
+langchain
+python-dotenv
+langchain_groq
+qdrant-client
+langchain_community
+langchain-cohere
+langchain-qdrant
+
+-e . 
